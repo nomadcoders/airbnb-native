@@ -15,7 +15,4 @@ Beautiful Airbnb Clone built with React Native
 - [ ] List Rooms
 - [ ] See Room
 - [ ] Add/Room From Favourites
-- [ ] Create Room
-- [ ] Edit Room
-- [ ] Delete Room
 - [ ] Search Rooms
