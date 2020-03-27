@@ -22,7 +22,7 @@ const Text = styled.Text`
   color: ${props => (props.accent ? "white" : colors.black)};
 `;
 
-const Btn = ({ loading, onPress, text, accent = false }) => (
+const Btn = ({ loading = false, onPress, text, accent = false }) => (
   <TouchableOpacity onPress={loading ? null : onPress}>
     <Button accent={accent}>
       {loading ? (
