@@ -33,7 +33,7 @@ export default ({ navigation }) => {
   return (
     <Container>
       <BlurView
-        intensity={40}
+        intensity={50}
         tint="light"
         style={{
           flex: 1,
