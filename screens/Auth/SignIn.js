@@ -4,7 +4,7 @@ import styled from "styled-components/native";
 import Btn from "../../components/Auth/Btn";
 import Input from "../../components/Auth/Input";
 import DismissKeyboard from "../../components/DismissKeyboard";
-import { isEmail } from "../../utils";
+import utils, { isEmail } from "../../utils";
 import { useDispatch } from "react-redux";
 import { userLogin } from "../../redux/usersSlice";
 
@@ -27,7 +27,7 @@ export default ({ route: { params } }) => {
       alert("All fields are required.");
       return false;
     }
-    if (!isEmail(email)) {
+    if (!utils.isEmail(email)) {
       alert("Email is invalid");
       return false;
     }
