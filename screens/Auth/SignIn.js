@@ -31,6 +31,7 @@ export default ({ route: { params } }) => {
       alert("Email is invalid");
       return false;
     }
+    return true;
   };
   const handleSubmit = () => {
     if (!isFormValid()) {

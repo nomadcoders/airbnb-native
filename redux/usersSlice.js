@@ -23,8 +23,12 @@ export const { logIn, logOut } = userSlice.actions;
 
 export const userLogin = form => async dispatch => {
   try {
-    const data = await api.login(form);
-    console.log(data);
+    const {
+      data: { id, token }
+    } = await api.login(form);
+    if (id && token) {
+      dispatch(logIn({ token }));
+    }
   } catch (e) {
     alert("Wrong user/password");
   }
