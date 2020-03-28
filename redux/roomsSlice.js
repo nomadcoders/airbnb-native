@@ -12,20 +12,12 @@ const roomsSlice = createSlice({
   },
   reducers: {
     setExploreRooms(state, action) {
-      const { explore } = state;
       const { payload } = action;
       if (payload.page === 1) {
         state.explore.rooms = payload.rooms;
         state.explore.page = 1;
       } else {
-        payload.rooms.forEach(payloadRoom => {
-          const exists = explore.rooms.find(
-            savedRoom => savedRoom.id === payloadRoom.id
-          );
-          if (!exists) {
-            explore.rooms.push(payloadRoom);
-          }
-        });
+        state.explore.rooms = [...state.explore.rooms, ...payload.rooms];
       }
     },
     increasePage(state, action) {
