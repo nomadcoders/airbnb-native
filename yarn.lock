@@ -4374,7 +4374,7 @@ promise@^7.1.1:
   dependencies:
     asap "~2.0.3"
 
-prop-types@^15.5.10, prop-types@^15.6.0, prop-types@^15.6.1, prop-types@^15.6.2, prop-types@^15.7.2:
+prop-types@^15.6.0, prop-types@^15.6.1, prop-types@^15.6.2, prop-types@^15.7.2:
   version "15.7.2"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.7.2.tgz#52c41e75b8c87e72b9d9360e0206b99dcbffa6c5"
   integrity sha512-8QQikdH7//R2vurIJSutZ1smHYTcLpRWEOlHnzcWHmBYrOGUysKwSsrC89BCiFj3CbrfJ/nXFdJepOVrY1GCHQ==
@@ -4476,17 +4476,17 @@ react-native-screens@2.0.0-alpha.12:
   dependencies:
     debounce "^1.2.0"
 
-react-native-swiper@^1.5.14:
-  version "1.5.14"
-  resolved "https://registry.yarnpkg.com/react-native-swiper/-/react-native-swiper-1.5.14.tgz#1c6f949ca377186300f972bb0f30d24062c899aa"
-  integrity sha512-Kn0fxKooN7Shwu1qJYHB+Y8ssXXnvrIwReHXU5jCdyYNfz2QbBv0Cv3sa2Mqzr+XgzORCFFIokc8uCCUITDrVA==
-  dependencies:
-    prop-types "^15.5.10"
-
 react-native-view-shot@3.0.2:
   version "3.0.2"
   resolved "https://registry.yarnpkg.com/react-native-view-shot/-/react-native-view-shot-3.0.2.tgz#daccaec5b8038a680b17533ff7e72876e68c7d0d"
   integrity sha512-JZOkGo2jzSX2b7N6N2uDr0wQjSz+QmBtY8jzeo0XJY6bLOfaY5nmWyYxDmDRoSpKiFkGTCkyhUqNnjo6lXOtEw==
+
+react-native-web-swiper@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/react-native-web-swiper/-/react-native-web-swiper-2.1.0.tgz#5b321819ee17ff1f7bc4ffd89388acf24b7b7fb7"
+  integrity sha512-TzHJIoHLEps03XFZp+8CLpvBbKxjIzqymaQeVemsNdGCqpVSMyCV7VN+2Yq3PZOGL49w5F0iynp80yGrDa7REA==
+  dependencies:
+    prop-types "^15.6.2"
 
 react-native-web@~0.11.7:
   version "0.11.7"
