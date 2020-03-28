@@ -31,7 +31,7 @@ const FakeText = styled.Text`
   font-weight: 300;
 `;
 
-export default ({ rooms }) => {
+export default ({ rooms, increasePage }) => {
   return (
     <Container>
       {rooms.length === 0 ? (
@@ -57,7 +57,7 @@ export default ({ rooms }) => {
                 isSuperHost={room.user.superhost}
               />
             ))}
-            <TouchableOpacity>
+            <TouchableOpacity onPress={increasePage}>
               <Text>Load More</Text>
             </TouchableOpacity>
           </ScrollView>

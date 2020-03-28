@@ -22,25 +22,28 @@ const roomsSlice = createSlice({
           explore.rooms.push(payloadRoom);
         }
       });
-      state.explore.page = payload.page;
+    },
+    increasePage(state, action) {
+      state.explore.page += 1;
     }
   }
 });
 
-const { setExploreRooms } = roomsSlice.actions;
+export const { setExploreRooms, increasePage } = roomsSlice.actions;
 
-export const getRooms = () => async dispatch => {
+export const getRooms = page => async dispatch => {
   try {
     const {
       data: { results }
-    } = await api.rooms();
+    } = await api.rooms(page);
     dispatch(
       setExploreRooms({
-        rooms: results,
-        page: 1
+        rooms: results
       })
     );
-  } catch (e) {}
+  } catch (e) {
+    console.warn(e);
+  }
 };
 
 export default roomsSlice.reducer;
