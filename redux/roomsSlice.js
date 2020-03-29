@@ -22,11 +22,14 @@ const roomsSlice = createSlice({
     },
     increasePage(state, action) {
       state.explore.page += 1;
+    },
+    setFavs(state, action) {
+      state.favs = action.payload;
     }
   }
 });
 
-export const { setExploreRooms, increasePage } = roomsSlice.actions;
+export const { setExploreRooms, increasePage, setFavs } = roomsSlice.actions;
 
 export const getRooms = page => async dispatch => {
   try {
