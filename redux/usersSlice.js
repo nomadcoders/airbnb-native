@@ -52,9 +52,9 @@ export const toggleFav = roomId => async (dispatch, getState) => {
   const {
     usersReducer: { id, token }
   } = getState();
+  dispatch(setFav({ roomId }));
   try {
-    const { status } = await api.toggleFavs(id, roomId, token);
-    dispatch(setFav({ roomId }));
+    await api.toggleFavs(id, roomId, token);
   } catch (e) {
     console.warn(e);
   }
