@@ -1,7 +1,9 @@
 import React, { useEffect } from "react";
 import styled from "styled-components/native";
+import { Ionicons } from "@expo/vector-icons";
 import RoomPhotos from "../../components/RoomPhotos";
 import colors from "../../colors";
+import utils from "../../utils";
 
 const Container = styled.ScrollView``;
 
@@ -31,12 +33,35 @@ const PropertyInfoText = styled.Text`
   padding: 5px 10px;
 `;
 
+const CheckContainer = styled.View`
+  margin-top: 40px;
+`;
+
+const CheckTitleContainer = styled.View`
+  flex-direction: row;
+  align-items: center;
+`;
+
+const CheckTitle = styled.Text`
+  font-size: 18px;
+  margin-left: 15px;
+`;
+
+const CheckTime = styled.Text`
+  margin-top: 10px;
+`;
+
 function formatQtt(number, name) {
   if (number === 1) {
     return `${number} ${name}`;
   } else {
     return `${number} ${name}s`;
   }
+}
+
+function formatTime(time) {
+  const [hours, min, sec] = time.split(":");
+  return `${hours} o'clock.`;
 }
 
 export default ({ route: { params }, navigation }) => {
@@ -63,6 +88,18 @@ export default ({ route: { params }, navigation }) => {
             </PropertyInfoText>
           </PropertyInfoData>
         </PropertyInfoContainer>
+        <CheckContainer>
+          <CheckTitleContainer>
+            <Ionicons
+              name={utils.isAndroid() ? "md-timer" : "ios-timer"}
+              size={24}
+            />
+            <CheckTitle>Check-in / Check-out</CheckTitle>
+          </CheckTitleContainer>
+          <CheckTime>
+            {formatTime(params.check_in)} / {formatTime(params.check_out)}
+          </CheckTime>
+        </CheckContainer>
       </DataContainer>
     </Container>
   );
