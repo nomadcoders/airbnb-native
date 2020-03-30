@@ -1,3 +1,8 @@
 import SearchContainer from "./SearchContainer";
+import { connect } from "react-redux";
 
-export default SearchContainer;
+function mapStateToProps(state) {
+  return { token: state.usersReducer.token };
+}
+
+export default connect(mapStateToProps)(SearchContainer);
