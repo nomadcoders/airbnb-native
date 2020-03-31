@@ -3,6 +3,7 @@ import styled from "styled-components/native";
 import { StyleSheet, Dimensions } from "react-native";
 import { connect } from "react-redux";
 import MapView, { Marker } from "react-native-maps";
+import colors from "../../colors";
 
 const { width, height } = Dimensions.get("screen");
 
@@ -54,6 +55,36 @@ const RoomPrice = styled.Text`
   font-size: 16px;
 `;
 
+const MarkerWrapper = styled.View`
+  align-items: center;
+`;
+
+const MarkerContainer = styled.View`
+  background-color: ${props => (props.selected ? colors.red : colors.green)};
+  padding: 10px;
+  border-radius: 10px;
+  position: relative;
+`;
+const MarkerText = styled.Text`
+  color: white;
+  font-size: 18px;
+  font-weight: 600;
+`;
+const MarkerTriangle = styled.View`
+  border: 10px solid transparent;
+  width: 10px;
+  border-top-color: ${props => (props.selected ? colors.red : colors.green)};
+`;
+
+const RoomMarker = ({ selected, price }) => (
+  <MarkerWrapper>
+    <MarkerContainer selected={selected}>
+      <MarkerText>${price}</MarkerText>
+    </MarkerContainer>
+    <MarkerTriangle selected={selected} />
+  </MarkerWrapper>
+);
+
 const Map = ({ rooms }) => {
   const mapRef = useRef();
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -95,14 +126,16 @@ const Map = ({ rooms }) => {
           zoom: 10
         }}
       >
-        {rooms?.map(room => (
+        {rooms?.map((room, index) => (
           <Marker
             key={room.id}
             coordinate={{
               latitude: parseFloat(room.lat),
               longitude: parseFloat(room.lng)
             }}
-          />
+          >
+            <RoomMarker selected={index === currentIndex} price={room.price} />
+          </Marker>
         ))}
       </MapView>
       <ScrollView
